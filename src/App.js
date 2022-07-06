@@ -18,6 +18,7 @@ import {
 import AdminLogin from './Components/Admin/AdminLogin';
 import Setting from './Components/Settings';
 import About from './Components/User/About';
+import AdminCategoryList from './Components/Admin/Modules/Category/List';
 
 
 
@@ -45,6 +46,10 @@ const App = () => {
             <Route path="/" element={<Navigate replace to="admin/dashboard" />} />
             <Route path="admin/dashboard" element={<Dashboard />} />
             <Route path="admin/settings" element={<Settings />} />
+
+            {/* category list */}
+            <Route path="/admin/category" element={<AdminCategoryList />} />
+            
           </Route>
         </Route>
 
