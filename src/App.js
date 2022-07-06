@@ -35,15 +35,11 @@ const App = () => {
           <Route path="/" element={<InnerContentUser />}>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-
-
-
-
             {/* login admin and user */}
             <Route path="/login" element={<Login />} />
-            <Route path="/admin/login" element={<AdminLogin />} />
           </Route>
-          
+
+          <Route path="/admin/login" element={<AdminLogin />} />
 
 
           {/** admin Routes */}

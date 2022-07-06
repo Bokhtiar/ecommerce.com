@@ -1,7 +1,7 @@
 const AdminFooter = () => {
     return (
         <div>
-            AdminFooter
+            AdminFooterasdfasdfsadf
         </div>
     )
 }

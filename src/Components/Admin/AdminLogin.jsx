@@ -7,7 +7,7 @@ import React from 'react'
 
 	  const navigate=useNavigate()
 	
-
+ 
 	  const AdminLogin=()=>{
 	    localStorage.setItem('admin','test')
 	    navigate('/admin/dashboard')
