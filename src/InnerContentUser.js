@@ -1,10 +1,12 @@
 import {Outlet} from 'react-router-dom'
+import Footer from './Components/User/Layouts/Footer';
+import Navbar from './Components/User/Layouts/Navbar';
 
 const  InnerContentUser=() =>{
   return <div className='inner-content'>
-    <h2>outlate user header</h2>
+    <Navbar></Navbar>
       <Outlet/>
-      <h2>outlate user footer</h2>
+    <Footer></Footer>
   </div>;
 } 
 
