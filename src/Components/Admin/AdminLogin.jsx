@@ -1,25 +1,62 @@
-import React from 'react'
-	import {useNavigate } from 'react-router-dom';
-	
+import axios from "axios"
+import { useState } from "react"
+import jwt_decode from "jwt-decode";
+import {useNavigate } from 'react-router-dom';
 
-	const  AdminLogin=() =>{
-	
-
-	  const navigate=useNavigate()
-	
+const AdminLogin = () => {
+	const navigate=useNavigate()
+	const [adminLogin, setAdminLogin] = useState({
+		'email':'',
+		'password': ''
+	})
+	const handleInput = (e)=>{
+        e.persist();
+        setAdminLogin({...adminLogin,[e.target.name]: e.target.value})
+    }
  
-	  const AdminLogin=()=>{
-	    localStorage.setItem('admin','test')
-	    navigate('/admin/dashboard')
-	  }
-	
-
-	  return <div className='AdminLogin'>
-	      <h2>Welcome to AdminLogin page! </h2>
-	      <p>Please AdminLoging to continue</p>
-	      <button onClick={AdminLogin}> AdminLogin</button>
-	  </div>;
+	const submitAdminLogin = (e) => {
+		e.preventDefault();
+		 axios.post('/admin/login', {
+			'email': adminLogin.email,
+			'password' : adminLogin.password
+		}).then(function (response) {
+			localStorage.setItem('token', response.data.data)
+			navigate('/dashboard')
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
 	}
-	
 
-	export default AdminLogin;
+	
+	return(
+		<section>
+			<div className="row justify-content-center">
+				<div className="col-md-6 col-lg-6">
+					<div className="card">
+						<div className="card-header">
+							<div>
+								Admin Login Page
+							</div>
+						</div>
+						<div className="card-body">
+							<form onSubmit={submitAdminLogin}>
+							<div className="form-group">
+								<label htmlFor="">Type Here Email</label>
+								<input onChange={handleInput} value={adminLogin.email} type="email" name="email" placeholder="type here email" />
+							</div>
+							<div className="form-group">
+								<label htmlFor="">Type Here Password</label>
+								<input onChange={handleInput} value={adminLogin.password} type="password" name="password" placeholder="type here password" />
+							</div>
+							<div className="text-center"><button type="submit" className='btn btn-success'>Book a Table</button></div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	)
+}
+
+export default AdminLogin
