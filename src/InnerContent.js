@@ -13,11 +13,14 @@ import "./Components/Admin/assets/vendor/simple-datatables/style.css";
 
 
 
+
 const InnerContent = () => {
   return <div className='inner-content'>
     <AdminNavbar></AdminNavbar>
     <AdminSidebar></AdminSidebar>
+    <main id="main" class="main">
     <Outlet/>
+    </main>
     <AdminFooter></AdminFooter>
     
   </div>

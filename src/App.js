@@ -2,7 +2,7 @@
 import React from 'react';
 
 import Login from './Components/Login';
-import Dashboard from './Components/Dashboard';
+import Dashboard from './Components/Admin/Dashboard';
 import Settings from './Components/Settings';
 import ProtectedRoutes from './ProtectedRoute';
 import ProtectedRoutesUser from './ProtectedRoutesUser';
@@ -20,6 +20,7 @@ import Setting from './Components/Settings';
 import About from './Components/User/About';
 import AdminCategoryList from './Components/Admin/Modules/Category/List';
 import Home from './Components/User/Home';
+import CategoryList from './Components/Admin/Modules/Category/List';
 
 
 
@@ -49,6 +50,10 @@ const App = () => {
             <Route path="/" element={<InnerContent />}>
               <Route path="/" element={<Navigate replace to="admin/dashboard" />} />
               <Route path="admin/dashboard" element={<Dashboard />} />
+              {/* category start */}
+              <Route path="admin/category" element={<CategoryList />} />
+              {/* category end  */}
+              
               <Route path="admin/settings" element={<Settings />} />
 
               {/* category list */}
