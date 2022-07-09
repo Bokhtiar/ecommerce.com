@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const CategoryList = () => {
 
@@ -27,7 +28,7 @@ const CategoryList = () => {
 
             <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Category List</h5>
+              <h5 class="card-title">Category List <Link className="btn btn-sm btn-success" to="/admin/category/create">Add Category</Link> </h5>
 
               <table class="table table-striped">
                 <thead>

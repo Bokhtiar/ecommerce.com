@@ -21,6 +21,7 @@ import About from './Components/User/About';
 import AdminCategoryList from './Components/Admin/Modules/Category/List';
 import Home from './Components/User/Home';
 import CategoryList from './Components/Admin/Modules/Category/List';
+import CategoryCreate from './Components/Admin/Modules/Category/create';
 
 
 
@@ -52,6 +53,7 @@ const App = () => {
               <Route path="admin/dashboard" element={<Dashboard />} />
               {/* category start */}
               <Route path="admin/category" element={<CategoryList />} />
+              <Route path="admin/category/create" element={<CategoryCreate />} />
               {/* category end  */}
               
               <Route path="admin/settings" element={<Settings />} />

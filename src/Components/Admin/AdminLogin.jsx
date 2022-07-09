@@ -1,6 +1,5 @@
 import axios from "axios"
 import { useState } from "react"
-import jwt_decode from "jwt-decode";
 import {useNavigate } from 'react-router-dom';
 
 const AdminLogin = () => {
@@ -49,7 +48,7 @@ const AdminLogin = () => {
 								<label htmlFor="">Type Here Password</label>
 								<input onChange={handleInput} value={adminLogin.password} type="password" name="password" placeholder="type here password" />
 							</div>
-							<div className="text-center"><button type="submit" className='btn btn-success'>Book a Table</button></div>
+							<div className="text-center"><button type="submit" className='btn btn-success'>Login</button></div>
 							</form>
 						</div>
 					</div>
