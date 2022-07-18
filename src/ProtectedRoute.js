@@ -12,7 +12,7 @@ import jwt_decode from "jwt-decode";
 			// 	localStorage.setItem('token', response.data.data)
 			// 	navigate('/dashboard')
 			// }
-	  if(isAdmin === "admin"){
+	  if(isAdmin === "admin"){ 
 	    return true
 	  } else {
 	    return false
