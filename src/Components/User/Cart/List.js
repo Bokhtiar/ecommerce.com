@@ -6,6 +6,7 @@ const CartList = () => {
         headers: { Authorization: `Bearer ${window.token}` }
     };
 
+
     const [carts, setCart] = useState([])
     useEffect(()=>{
         CartListItem()
@@ -17,6 +18,14 @@ const CartList = () => {
             setCart(res.data.data)
         }).catch((error) => {
             console.log(error);
+        })
+    }
+
+    const removeCart = async(id) =>{
+        axios.delete(`/cart/${id}`, config).then((res) => {
+            CartListItem()
+        }).catch((error)=>{
+            console.log(error)
         })
     }
     let total = 0;
@@ -40,14 +49,15 @@ const CartList = () => {
                         <tbody>
                             {
                                 
-                                carts.map((cart, index)=>
+                                carts.map((cart, index) =>
+                                
                                 <tr>
                                     <th scope="row">{index + 1}</th>
                                     <td>{cart.product_id ? cart.product_id.name : ''}</td>
-                                    <td> { total += cart.product_id ? cart.product_id.price : ''} Taka</td>
+                                    <td> { cart.product_id ? cart.product_id.price : ''} Taka</td>
                                     <td>{cart.quantity}</td>
                                     <td>
-                                        <a href="" className="btn btn-sm btn-danger">Remove</a>
+                                        <button className="btn btn-sm btn-danger" onClick={()=>removeCart(cart._id)}>Remove</button>
                                     </td>
                                 </tr>
                                 )
