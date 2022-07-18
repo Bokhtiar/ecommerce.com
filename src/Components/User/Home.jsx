@@ -1,6 +1,7 @@
 import axios from "axios"
 import {useEffect, useState} from "react"
 import { Link } from "react-router-dom"
+import Slider from "./Layouts/Slider"
 
 const Home = () => {
 
@@ -17,9 +18,13 @@ const Home = () => {
       console.log(error)
     })
   }
+
+  
+
+
   return (
     <section>
-
+      <Slider></Slider>
       <section className="service_section layout_padding ">
         <div className="container">
           <h2 className="custom_heading">Our Services</h2>

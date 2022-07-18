@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import {useParams} from "react-router-dom"
+import {Link, useParams} from "react-router-dom"
 
 const ProductDetail = () => {
     const {id} = useParams()
@@ -23,9 +23,9 @@ const ProductDetail = () => {
 
     return (
         <section className="my-5 container">
-            <div className="row">
-                <div className="col-md-4 col-lg-4 col-sm-12">
-                    <img src={product.image} alt="" />
+            <div className="row ">
+                {/* <div className="col-md-4 col-lg-4 col-sm-12">
+                    
                 </div>
                 <div className="col-md-8 col-lg-8 col-sm-12">
                     <p><strong>Product Name: </strong> {product.name}</p>
@@ -33,6 +33,16 @@ const ProductDetail = () => {
                     <p><strong>Product Category: </strong> {product.category_id}</p>
                     <p><strong>Product Description: </strong> {product.description}</p>
                     <a href="">Add-to-card</a>
+                </div> */}
+                <div className="col-md-4 col-lg-4">
+                <img src={product.image} style={{height: "350px", width:"100%"}} alt="" />
+                </div>
+                <div className="col-md-8 col-lg-8">
+                    <p><strong>Product Name: </strong> {product.name}</p>
+                    <p><strong>Product Price: </strong> {product.price}</p>
+                    <p><strong>Product Category: </strong> {product.category_id}</p>
+                    <p><strong>Product Description: </strong> {product.description}</p>
+                    <Link href="">Add-to-card</Link>            
                 </div>
             </div>
         </section>
