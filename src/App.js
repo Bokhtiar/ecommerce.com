@@ -24,6 +24,7 @@ import CategoryList from './Components/Admin/Modules/Category/List';
 import CategoryCreate from './Components/Admin/Modules/Category/create';
 import ProductList from './Components/Admin/Modules/product/ProductList';
 import ProductCreate from './Components/Admin/Modules/product/ProductCreate';
+import ProductDetail from './Components/User/Product/ProductDetail';
 
 
 
@@ -41,6 +42,8 @@ const App = () => {
             <Route path="/about" element={<About />} />
             {/* login admin and user */}
             <Route path="/login" element={<Login />} />
+            {/* product */}
+            <Route path="/product/:id" element={<ProductDetail />} />
           </Route>
 
           <Route path="/admin/login" element={<AdminLogin />} />
