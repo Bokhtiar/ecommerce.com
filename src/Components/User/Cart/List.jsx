@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const CartList = () => {
     const config = {
@@ -64,8 +65,10 @@ const CartList = () => {
                             }
                         </tbody>
                     </table>
+                    
                     {total}
                 </div>
+                <Link to="/user/checkout" className="btn btn btn-success">Checkout</Link>
             </div>
         </section>
     )
