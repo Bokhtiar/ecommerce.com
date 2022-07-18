@@ -22,6 +22,8 @@ import AdminCategoryList from './Components/Admin/Modules/Category/List';
 import Home from './Components/User/Home';
 import CategoryList from './Components/Admin/Modules/Category/List';
 import CategoryCreate from './Components/Admin/Modules/Category/create';
+import ProductList from './Components/Admin/Modules/product/ProductList';
+import ProductCreate from './Components/Admin/Modules/product/ProductCreate';
 
 
 
@@ -55,6 +57,10 @@ const App = () => {
               <Route path="admin/category" element={<CategoryList />} />
               <Route path="admin/category/create" element={<CategoryCreate />} />
               {/* category end  */}
+              {/* product start */}
+              <Route path="admin/product" element={<ProductList />} />
+              <Route path="admin/product/create" element={<ProductCreate />} />
+              {/* produt end  */}
               
               <Route path="admin/settings" element={<Settings />} />
 

@@ -23,6 +23,13 @@ const AdminSidebar = () => {
         </Link>
       </li>{/*  End Category Nav */}
 
+      <li class="nav-item">
+        <Link class="nav-link " to="/admin/product">
+          <i class="bi bi-grid"></i>
+          <span>Product</span>
+        </Link>
+      </li>{/*  End Category Nav */}
+
     </ul>
 
   </aside>

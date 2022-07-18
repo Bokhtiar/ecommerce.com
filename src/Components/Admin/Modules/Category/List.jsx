@@ -1,12 +1,16 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2';
+
 
 const CategoryList = () => {
 
     const [categories , setCategories] = useState([])
     
-    
+    useEffect(()=>{
+      categoryList()
+ },[])
     const categoryList = async() => {
         await axios.get('/category')
         .then(function (response) {
@@ -17,10 +21,57 @@ const CategoryList = () => {
             console.log(error);
         });
     }
-    useEffect(()=>{
-         categoryList()
-    },[])
+
     
+    const deleteProduct = async (id) => {
+      const isConfirm = await Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          return result.isConfirmed
+        });
+
+        if(!isConfirm){
+          return;
+        }
+
+        await axios.delete(`/category/${id}`).then(({data})=>{
+          Swal.fire({
+              icon:"success",
+              text:data.message
+          })
+          categoryList()
+        }).catch(({response:{data}})=>{
+          Swal.fire({
+              text:data.message,
+              icon:"error"
+          })
+        })
+  }
+
+
+  const productStatus = async(cat_id) => {
+    axios.get(`/category/status/${cat_id}`).then((response) =>{
+      Swal.fire({
+        icon:"success",
+        text: response.data.message
+      })
+      categoryList()
+    })
+  }
+
+
+  
+
+
+    
+    
+
     return (
         <section>
 
@@ -48,9 +99,12 @@ const CategoryList = () => {
                   <td>{index+1}</td>
                   <td>{cat.name}</td>
                   <td> <img style={{height:"60px", width:"60px"}} src={cat.image} alt="" /> </td>
-                  <td>active</td>
                   <td>
-                    <a href="">Edit</a>
+                  {cat.cat_status === true ? <button className="btn btn-sm btn-success" onClick={()=>productStatus(cat._id)}>Active</button> : <button className="btn btn-sm btn-info" onClick={()=>productStatus(cat._id)}>InActive</button>}
+                  </td>
+                  <td>
+                    <button onClick={()=>deleteProduct(cat._id)}>Delete</button>
+                    
                   </td>
                 </tr>
               )
