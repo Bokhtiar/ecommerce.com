@@ -25,6 +25,7 @@ import CategoryCreate from './Components/Admin/Modules/Category/create';
 import ProductList from './Components/Admin/Modules/product/ProductList';
 import ProductCreate from './Components/Admin/Modules/product/ProductCreate';
 import ProductDetail from './Components/User/Product/ProductDetail';
+import CartList from './Components/User/Cart/List';
 
 
 
@@ -50,8 +51,6 @@ const App = () => {
 
 
           {/** admin Routes */}
-
-
           <Route path="/" element={<ProtectedRoutes />}>
             <Route path="/" element={<InnerContent />}>
               <Route path="/" element={<Navigate replace to="admin/dashboard" />} />
@@ -82,6 +81,9 @@ const App = () => {
               <Route path="/" element={<Navigate replace to="user/dashboard" />} />
               <Route path="/user/dashboard" element={<Dashboard />} />
               <Route path="/user/settings" element={<Settings />} />
+
+              {/* carts */}
+              <Route path="/user/carts" element={<CartList />} />
             </Route>
           </Route>
 

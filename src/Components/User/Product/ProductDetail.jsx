@@ -1,8 +1,15 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import {Link, useParams} from "react-router-dom"
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+const token = localStorage.getItem('token');
 
 const ProductDetail = () => {
+    const config = {
+        headers: { Authorization: `Bearer ${token}` }
+    };
+    const navigate = useNavigate()
     const {id} = useParams()
     const [product, setProduct] = useState([])
     console.log('pras',product)
@@ -18,6 +25,17 @@ const ProductDetail = () => {
         }).catch((error) =>{
             console.log(error);
         })
+    }
+
+    const AddToCart = (id) =>{
+        const api = `/cart/${id}`
+        axios.post(api, {}, config).then((response) =>{
+            Swal.fire({
+              icon:"success",
+              text: response.data.message
+            })
+            navigate('/')
+          })
     }
 
 
@@ -42,7 +60,7 @@ const ProductDetail = () => {
                     <p><strong>Product Price: </strong> {product.price}</p>
                     <p><strong>Product Category: </strong> {product.category_id}</p>
                     <p><strong>Product Description: </strong> {product.description}</p>
-                    <Link href="">Add-to-card</Link>            
+                    <button onClick={()=>AddToCart(product._id)} className="btn btn-sm btn-success">Add To Cart</button>         
                 </div>
             </div>
         </section>
