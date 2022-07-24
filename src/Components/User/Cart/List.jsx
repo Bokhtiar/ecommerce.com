@@ -14,7 +14,9 @@ const CartList = () => {
     },[])
 
     const CartListItem = async() => {
-        axios.get('cart', config).then((res)=>{
+        axios.get('cart', {
+        headers: { Authorization: `Bearer ${window.token}` }
+    }).then((res)=>{
             console.log(res.data.data);
             setCart(res.data.data)
         }).catch((error) => {
@@ -23,7 +25,9 @@ const CartList = () => {
     }
 
     const removeCart = async(id) =>{
-        axios.delete(`/cart/${id}`, config).then((res) => {
+        axios.delete(`/cart/${id}`, {
+        headers: { Authorization: `Bearer ${window.token}` }
+    }).then((res) => {
             CartListItem()
         }).catch((error)=>{
             console.log(error)

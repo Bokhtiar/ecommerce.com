@@ -27,6 +27,7 @@ import ProductCreate from './Components/Admin/Modules/product/ProductCreate';
 import ProductDetail from './Components/User/Product/ProductDetail';
 import CartList from './Components/User/Cart/List';
 import CheckoutCreate from './Components/User/Checkout/create';
+import OrderList from './Components/Admin/Modules/Order/List';
 
 
 
@@ -69,6 +70,9 @@ const App = () => {
 
               {/* category list */}
               <Route path="/admin/category" element={<AdminCategoryList />} />
+
+              {/* order list */}
+              <Route path="/admin/order" element={<OrderList />} />
 
             </Route>
           </Route>

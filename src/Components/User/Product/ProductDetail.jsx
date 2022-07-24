@@ -29,7 +29,9 @@ const ProductDetail = () => {
 
     const AddToCart = (id) =>{
         const api = `/cart/${id}`
-        axios.post(api, {}, config).then((response) =>{
+        axios.post(api, {}, {
+            headers: { Authorization: `Bearer ${token}` }
+        }).then((response) =>{
             Swal.fire({
               icon:"success",
               text: response.data.message

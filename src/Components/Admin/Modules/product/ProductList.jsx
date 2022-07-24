@@ -15,7 +15,7 @@ const ProductList = () => {
 
     useEffect(()=>{
         AllProduct()
-    })
+    },[])
 
     return (
         <section>

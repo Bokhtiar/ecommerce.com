@@ -30,6 +30,13 @@ const AdminSidebar = () => {
         </Link>
       </li>{/*  End Category Nav */}
 
+      <li class="nav-item">
+        <Link class="nav-link " to="/admin/order">
+          <i class="bi bi-grid"></i>
+          <span>Order</span>
+        </Link>
+      </li>{/*  End Category Nav */}
+
     </ul>
 
   </aside>

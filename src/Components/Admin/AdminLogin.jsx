@@ -20,7 +20,7 @@ const AdminLogin = () => {
 			'password' : adminLogin.password
 		}).then(function (response) {
 			localStorage.setItem('token', response.data.data)
-			navigate('/dashboard')
+			navigate('/admin/dashboard')
           })
           .catch(function (error) {
             console.log(error);
