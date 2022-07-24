@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import {Link} from 'react-router-dom'
 
 const OrderList = () => {
     const [orders, setOrder] = useState([''])
@@ -42,23 +43,11 @@ const OrderList = () => {
                                         status
                                     </td>
                                     <td>
-                                        <a href="">Details</a>
+                                        <Link to={`/admin/order/show/${order._id}`}>Details</Link>
                                     </td>
                                 </tr>
                                 )
                             }
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>

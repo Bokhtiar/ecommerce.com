@@ -28,6 +28,7 @@ import ProductDetail from './Components/User/Product/ProductDetail';
 import CartList from './Components/User/Cart/List';
 import CheckoutCreate from './Components/User/Checkout/create';
 import OrderList from './Components/Admin/Modules/Order/List';
+import OrderShow from './Components/Admin/Modules/Order/Show';
 
 
 
@@ -73,6 +74,7 @@ const App = () => {
 
               {/* order list */}
               <Route path="/admin/order" element={<OrderList />} />
+              <Route path="/admin/order/show/:id" element={<OrderShow />} />
 
             </Route>
           </Route>
