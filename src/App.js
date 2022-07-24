@@ -29,6 +29,7 @@ import CartList from './Components/User/Cart/List';
 import CheckoutCreate from './Components/User/Checkout/create';
 import OrderList from './Components/Admin/Modules/Order/List';
 import OrderShow from './Components/Admin/Modules/Order/Show';
+import AdminLogout from './Components/Admin/Logout';
 
 
 
@@ -76,6 +77,8 @@ const App = () => {
               <Route path="/admin/order" element={<OrderList />} />
               <Route path="/admin/order/show/:id" element={<OrderShow />} />
 
+              {/* settings */}
+              <Route path="/admin/logout" element={<AdminLogout />} />
             </Route>
           </Route>
 
