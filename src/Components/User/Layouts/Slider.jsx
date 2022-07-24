@@ -1,146 +1,28 @@
 const Slider = () => {
     return (
         <section>
-            <section class=" slider_section position-relative">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="slider_item-box">
-                                <div class="slider_item-container">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="slider_item-detail">
-                                                    <div>
-                                                        <h1>
-                                                            Welcome to <br />
-                                                            Our Fruits Shop
-                                                        </h1>
-                                                        <p>
-                                                            There are many variations of passages of Lorem
-                                                            Ipsum available, but the majority have suffered
-                                                            alteration in some form, by injected humour, or
-                                                            randomised words which don't look even slightly
-                                                            believable.
-                                                        </p>
-                                                        <div class="d-flex">
-                                                            <a href="" class="text-uppercase custom_orange-btn mr-3">
-                                                                Shop Now
-                                                            </a>
-                                                            <a href="" class="text-uppercase custom_dark-btn">
-                                                                Contact Us
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="slider_img-box">
-                                                    <div>
-                                                        <img src="" alt="" class="" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="slider_item-box">
-                                <div class="slider_item-container">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="slider_item-detail">
-                                                    <div>
-                                                        <h1>
-                                                            Welcome to <br />
-                                                            Our Fruits Shop
-                                                        </h1>
-                                                        <p>
-                                                            There are many variations of passages of Lorem
-                                                            Ipsum available, but the majority have suffered
-                                                            alteration in some form, by injected humour, or
-                                                            randomised words which don't look even slightly
-                                                            believable.
-                                                        </p>
-                                                        <div class="d-flex">
-                                                            <a href="" class="text-uppercase custom_orange-btn mr-3">
-                                                                Shop Now
-                                                            </a>
-                                                            <a href="" class="text-uppercase custom_dark-btn">
-                                                                Contact Us
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="slider_img-box">
-                                                    <div>
-                                                        <img src="images/slide-img.png" alt="" class="" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="slider_item-box">
-                                <div class="slider_item-container">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="slider_item-detail">
-                                                    <div>
-                                                        <h1>
-                                                            Welcome to <br />
-                                                            Our Fruits Shop
-                                                        </h1>
-                                                        <p>
-                                                            There are many variations of passages of Lorem
-                                                            Ipsum available, but the majority have suffered
-                                                            alteration in some form, by injected humour, or
-                                                            randomised words which don't look even slightly
-                                                            believable.
-                                                        </p>
-                                                        <div class="d-flex">
-                                                            <a href="" class="text-uppercase custom_orange-btn mr-3">
-                                                                Shop Now
-                                                            </a>
-                                                            <a href="" class="text-uppercase custom_dark-btn">
-                                                                Contact Us
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="slider_img-box">
-                                                    <div>
-                                                        <img src="images/slide-img.png" alt="" class="" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="https://imgs.search.brave.com/ulwZWEnQzZeLGz8yUViDzy4r7RRjG2rt0H8cScr1tLY/rs:fit:1221:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/TXl2ZE5TWjFRY0hq/b2JCZTBFUUdBSGFD/NCZwaWQ9QXBp" alt="First slide" />
                     </div>
-                    <div class="custom_carousel-control">
-                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                            <span class="sr-only">Next</span>
-                        </a>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="https://imgs.search.brave.com/3h5s-BkkHHMmmHPEGrbvKzywHJHdFXJ809O26osXn_E/rs:fit:948:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC54/am54M0h5bVFzTTV6/ejlfRTlncHZ3SGFE/dCZwaWQ9QXBp" alt="Second slide" />
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="https://imgs.search.brave.com/WLVPC4YqmfhHiw1cBW_JWQSx165rROlkdCim36yU4g4/rs:fit:905:225:1/g:ce/aHR0cHM6Ly90c2Uy/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC45/eExYZFNkZnVpSEJD/ZG5tY2ljNU9nSGFE/NCZwaWQ9QXBp" alt="Third slide" />
                     </div>
                 </div>
-            </section>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
         </section>
     )
 }
