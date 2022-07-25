@@ -7,15 +7,24 @@ const Home = () => {
 
   const [products , setProduct] = useState([])
   const [categories , setCategory] = useState([])
+  const [totalpage, setTotalPage] = useState([])
+  const [currentpage, setCureentPage] = useState([])
+
   
+
   useEffect(()=>{
     productList()
     CategoryList()
   },[])
 
-  const productList = async() => {
-    axios.get('/product').then((res)=>{
+  const productList = async(Pagenumber) => {
+    axios.get(`/product?page=${Pagenumber}`).then((res)=>{
+      console.log('pages total',res.data.totalPage);
+      console.log('currentPage total',res.data.currentPage);
+      console.log('itemPerPage total',res.data.itemPerPage);
       setProduct(res.data.data)
+      setTotalPage(res.data.totalPage)
+      setCureentPage(res.data.currentPage)
     }).catch((error) =>{
       console.log(error)
     })
@@ -31,7 +40,23 @@ const Home = () => {
   }
 
   
+  let paginate = [];
+  for (let index = 0; index < totalpage; index++) {
+      paginate.push(
+          <div className=''>
+              <li class="page-item"><button className="page-link" onClick={()=>productList(index+1) } >{index +1}</button></li>
+          </div>
+      )
+  }
 
+  const previce = () => {
+    productList(currentpage - 1)
+  }
+  const next = () =>{
+    productList(currentpage+1)
+  } 
+
+ 
 
   return (
     
@@ -75,9 +100,9 @@ const Home = () => {
              products.map((product, index) => 
              <div className="col-sm-12 col-md-3 col-lg-3 product">
              <Link to={`/product/${product._id}`}>
-              <div class="card" style={{ width: "17rem" }}>
-                <img height={200} class="card-img-top" src={product.image} alt="Card image cap" />
-                <div class="card-body">
+              <div className="card" style={{ width: "17rem" }}>
+                <img height={200} className="card-img-top" src={product.image} alt="Card image cap" />
+                <div className="card-body">
                   <div className="row text-dark">
                     <div className="col-md-8 col-lg-8 col-sm-8 font-weight-bold">{product.name}</div>
                     <div className="col-md-4 col-lg-4 col-sm-4"> <strong>৳</strong> {product.price}</div>
@@ -92,8 +117,20 @@ const Home = () => {
             </div>
              )
            }
-
           </div>
+         
+               <div>
+                 <nav aria-label="Page navigation example">
+                  <ul class="pagination">
+                    <li class="page-item  "><button class="page-link" onClick={()=>previce()} >Previous</button></li>
+
+                     {paginate} 
+                     
+                    <li class="page-item"><button class="page-link" onClick={()=>next()} >Next</button></li>
+                  </ul>
+                </nav>
+               </div>
+            
         </div>
       </section>
 
