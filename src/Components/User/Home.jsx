@@ -6,9 +6,11 @@ import Slider from "./Layouts/Slider"
 const Home = () => {
 
   const [products , setProduct] = useState([])
+  const [categories , setCategory] = useState([])
   
   useEffect(()=>{
     productList()
+    CategoryList()
   },[])
 
   const productList = async() => {
@@ -19,71 +21,50 @@ const Home = () => {
     })
   }
 
+
+  const CategoryList = () =>{
+    axios.get('/category').then((res)=>{
+      setCategory(res.data.data)
+    }).catch((error)=>{
+      console.log(error);
+    })
+  }
+
   
 
 
   return (
+    
     <section>
       <Slider></Slider>
-      <section className="service_section layout_padding ">
+      <section className=" layout_padding ">
         <div className="container">
-          <h2 className="custom_heading">Our Services</h2>
-          <p className="custom_heading-text">
+          <h2 className="text-center">Our Categories</h2>
+          <p className="text-center">
             There are many variations of passages of Lorem Ipsum available, but
             the majority have
           </p>
-          <div className=" layout_padding2">
-            <div className="card-deck">
-              <div className="card">
-                <img className="card-img-top" src="images/card-item-1.png" alt="Card image cap" />
-                <div className="card-body">
-                  <h5 className="card-title">Orange</h5>
-                  <p className="card-text">
-                    There are many variations of passages of Lorem Ipsum
-                    available, but the majority have suffered alteration in some
-                    form, by injected humour, or randomised words which don't look
-                    even slightly believable.
-                  </p>
+
+          <div className="row">
+            {
+              categories.map((category, index) => 
+              <div className="col-md-2 my-2">
+                <div className="card">
+                  <img height={80} className="card-img-top" src={category.image} alt="Card image cap" />
+                  <p className="my-2 text-center"><a className="text-dark" href="">{category.name}</a></p>
+
                 </div>
               </div>
-              <div className="card">
-                <img className="card-img-top" src="" alt="Card image cap" />
-                <div className="card-body">
-                  <h5 className="card-title">Grapes</h5>
-                  <p className="card-text">
-                    There are many variations of passages of Lorem Ipsum
-                    available, but the majority have suffered alteration in some
-                    form, by injected humour, or randomised words which don't look
-                    even slightly believable.
-                  </p>
-                </div>
-              </div>
-              <div className="card">
-                <img className="card-img-top" src="" alt="Card image cap" />
-                <div className="card-body">
-                  <h5 className="card-title">Gauva</h5>
-                  <p className="card-text">
-                    There are many variations of passages of Lorem Ipsum
-                    available, but the majority have suffered alteration in some
-                    form, by injected humour, or randomised words which don't look
-                    even slightly believable.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="d-flex justify-content-center">
-            <a href="" className="custom_dark-btn">
-              Read More
-            </a>
+              )
+            }
+            
           </div>
         </div>
       </section>
 
-
       <section className="fruit_section">
         <div className="container">
-          <h2 className="custom_heading">Fresh Fruits</h2>
+          <h2 className="custom_heading">Just For You</h2>
           <p className="custom_heading-text">
             There are many variations of passages of Lorem Ipsum available, but
             the majority have
@@ -92,13 +73,20 @@ const Home = () => {
             
            {
              products.map((product, index) => 
-             <div className="col-sm-12 col-md-3 col-lg-3">
+             <div className="col-sm-12 col-md-3 col-lg-3 product">
              <Link to={`/product/${product._id}`}>
-              <div class="card" style={{ width: "14rem" }}>
-                <img class="card-img-top" src={product.image} alt="Card image cap" />
+              <div class="card" style={{ width: "17rem" }}>
+                <img height={200} class="card-img-top" src={product.image} alt="Card image cap" />
                 <div class="card-body">
-                  <p class="card-text">{product.name} <br /> {product.price}Taka</p>
+                  <div className="row text-dark">
+                    <div className="col-md-8 col-lg-8 col-sm-8 font-weight-bold">{product.name}</div>
+                    <div className="col-md-4 col-lg-4 col-sm-4"> <strong>৳</strong> {product.price}</div>
+                  </div>
+                  
                 </div>
+              </div>
+              <div className="stoke">
+                Stock
               </div>
              </Link>
             </div>
@@ -109,99 +97,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="tasty_section">
-        <div className="container_fluid">
-          <h2>
-            Very tasty fruits
-          </h2>
-        </div>
-      </section>
-
-
-      <section className="client_section layout_padding">
-        <div className="container">
-          <h2 className="custom_heading">Testimonial</h2>
-          <p className="custom_heading-text">
-            There are many variations of passages of Lorem Ipsum available, but
-            the majority have
-          </p>
-          <div>
-            <div id="carouselExampleControls-2" className="carousel slide" data-ride="carousel">
-              <div className="carousel-inner">
-                <div className="carousel-item active">
-                  <div className="client_container layout_padding2">
-                    <div className="client_img-box">
-                      <img src="images/client.png" alt="" />
-                    </div>
-                    <div className="client_detail">
-                      <h3>
-                        Johnhex
-                      </h3>
-                      <p className="custom_heading-text">
-                        There are many variations of passages of Lorem Ipsum
-                        available, but the majority have suffered alteration in
-                        some form, by injected humour, or randomised words which
-                        don't look even slightly believable. If you are <br />
-                        going to use a passage of Lorem Ipsum, you need to be sure
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="carousel-item">
-                  <div className="client_container layout_padding2">
-                    <div className="client_img-box">
-                      <img src="images/client.png" alt="" />
-                    </div>
-                    <div className="client_detail">
-                      <h3>
-                        Johnhex
-                      </h3>
-                      <p className="custom_heading-text">
-                        There are many variations of passages of Lorem Ipsum
-                        available, but the majority have suffered alteration in
-                        some form, by injected humour, or randomised words which
-                        don't look even slightly believable. If you are <br />
-                        going to use a passage of Lorem Ipsum, you need to be sure
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="carousel-item">
-                  <div className="client_container layout_padding2">
-                    <div className="client_img-box">
-                      <img src="images/client.png" alt="" />
-                    </div>
-                    <div className="client_detail">
-                      <h3>
-                        Johnhex
-                      </h3>
-                      <p className="custom_heading-text">
-                        There are many variations of passages of Lorem Ipsum
-                        available, but the majority have suffered alteration in
-                        some form, by injected humour, or randomised words which
-                        don't look even slightly believable. If you are <br />
-                        going to use a passage of Lorem Ipsum, you need to be sure
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="custom_carousel-control">
-                <a className="carousel-control-prev" href="#carouselExampleControls-2" role="button" data-slide="prev">
-                  <span className="" aria-hidden="true"></span>
-                  <span className="sr-only">Previous</span>
-                </a>
-                <a className="carousel-control-next" href="#carouselExampleControls-2" role="button" data-slide="next">
-                  <span className="" aria-hidden="true"></span>
-                  <span className="sr-only">Next</span>
-                </a>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </section>
-
+      {/* contact */}
       <section className="contact_section layout_padding">
         <div className="container">
           <h2 className="font-weight-bold">
@@ -240,7 +136,7 @@ const Home = () => {
         </div>
       </section>
 
-
+      {/* footer */}
       <section className="info_section layout_padding">
         <div className="container">
           <div className="row">
@@ -375,7 +271,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
 
     </section>
   )

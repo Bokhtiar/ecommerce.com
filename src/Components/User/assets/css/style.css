@@ -4,6 +4,19 @@ body {
   background-color: #ffffff;
 }
 
+.product{
+  position: relative;
+}
+.stoke{
+  position:absolute;
+  margin-top: -290px;
+  color: green;
+  font-weight: bold;
+  margin-left: 5px;
+
+
+}
+
 .layout_padding {
   padding: 75px 0;
 }
