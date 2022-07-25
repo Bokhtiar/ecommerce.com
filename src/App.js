@@ -31,6 +31,7 @@ import OrderList from './Components/Admin/Modules/Order/List';
 import OrderShow from './Components/Admin/Modules/Order/Show';
 import AdminLogout from './Components/Admin/Logout';
 import Logout from './Components/User/Logout';
+import CategoryProduct from './Components/User/Product/Categoryproduct';
 
 
 
@@ -50,6 +51,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             {/* product */}
             <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/category/product/list/:id" element={<CategoryProduct />} />
           </Route>
 
           <Route path="/admin/login" element={<AdminLogin />} />
@@ -86,7 +88,7 @@ const App = () => {
 
 
 
-          {/** Public Routes */}
+          {/** Public Auth Routes */}
           <Route path="/" element={<ProtectedRoutesUser />}>
             <Route path="/" element={<InnerContentUser />}>
               <Route path="/" element={<Navigate replace to="user/dashboard" />} />

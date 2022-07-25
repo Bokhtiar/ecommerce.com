@@ -76,7 +76,7 @@ const Home = () => {
               <div className="col-md-2 my-2">
                 <div className="card">
                   <img height={80} className="card-img-top" src={category.image} alt="Card image cap" />
-                  <p className="my-2 text-center"><a className="text-dark" href="">{category.name}</a></p>
+                  <p className="my-2 text-center"><Link className="text-dark" to={`/category/product/list/${category._id}`}>{category.name}</Link></p>
 
                 </div>
               </div>
