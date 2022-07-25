@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import {useNavigate } from 'react-router-dom';
-const AdminLogout = () =>{
+const Logout = () =>{
     const navigate=useNavigate()
     useEffect(()=>{
         localStorage.clear()
@@ -13,4 +13,4 @@ const AdminLogout = () =>{
         </section>
     )
 }
-export default  AdminLogout
+export default  Logout

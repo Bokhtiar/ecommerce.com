@@ -30,6 +30,7 @@ import CheckoutCreate from './Components/User/Checkout/create';
 import OrderList from './Components/Admin/Modules/Order/List';
 import OrderShow from './Components/Admin/Modules/Order/Show';
 import AdminLogout from './Components/Admin/Logout';
+import Logout from './Components/User/Logout';
 
 
 
@@ -96,6 +97,7 @@ const App = () => {
               <Route path="/user/carts" element={<CartList />} />
               {/* checkout */}
               <Route path="/user/checkout" element={<CheckoutCreate />} />
+              <Route path="/logout" element={<Logout />} />
             </Route>
           </Route>
 
