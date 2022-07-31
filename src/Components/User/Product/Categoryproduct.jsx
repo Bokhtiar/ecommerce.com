@@ -23,6 +23,16 @@ const CategoryProduct = () => {
         })  
     } 
 
+    /* product list show for if category not select defoult some product show */
+    const AllProduct  = () =>{
+        axios.get('/product').then((res) =>{
+            setProduct(res.data.data)
+        }).then((error)=>{
+            console.log(error);
+        })
+    }
+
+    /* category click after the query from product table then show the response data */
     const cat = (id)=>{
         axios.get(`/category/product/${id}`).then((res)=>{
             setProduct(res.data.data)
@@ -36,6 +46,7 @@ const CategoryProduct = () => {
     useEffect(()=>{
         AllCategory()
         CategoryWaysProduct()
+        AllProduct()
     },[])
 
     return (
@@ -77,7 +88,7 @@ const CategoryProduct = () => {
                        </div>
                         )
                         :
-                        "no item"
+                        "Select Your Product Category"
                     }
                       
                     </div>

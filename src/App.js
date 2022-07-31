@@ -52,6 +52,7 @@ const App = () => {
             {/* product */}
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/category/product/list/:id" element={<CategoryProduct />} />
+            <Route path="/product" element={<CategoryProduct />} />
           </Route>
 
           <Route path="/admin/login" element={<AdminLogin />} />
