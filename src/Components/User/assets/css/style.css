@@ -515,3 +515,8 @@ a:focus {
 }
 
 /* end footer section*/
+
+.cart{
+  border-radius: 13px; 
+  margin-top:10px;
+}

@@ -35,9 +35,12 @@ const Navbar = () => {
                     <li class="nav-item">
                       <a class="nav-link" href="contact.html">Contact us</a>
                     </li>
+                    <li class="nav-item">
+                      <img height={25} className="cart" src="https://imgs.search.brave.com/Yt56hkE1OVcj0mTE0tUqlO80sB7rphoB_kE4r2ZkH9k/rs:fit:800:600:1/g:ce/aHR0cHM6Ly9jZG4u/ZHJpYmJibGUuY29t/L3VzZXJzLzMxNDQ1/L3NjcmVlbnNob3Rz/LzM5NjU5NzAvZHJp/YmJibGVfdHNfcHJl/dmlldy5wbmc" alt="" />
+                    </li>
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Profile
+                        <img height={25} src="https://imgs.search.brave.com/6B_jZoNk6Va0_73dJ_WgGHyeCiYFoEdHKM8k32BFIjg/rs:fit:512:512:1/g:ce/aHR0cHM6Ly9pY29u/cy1mb3ItZnJlZS5j/b20vaWNvbmZpbGVz/L3BuZy81MTIvYXZh/dGFyK2h1bWFuK3Bl/b3BsZStwcm9maWxl/K3VzZXIraWNvbi0x/MzIwMTY4MTM5NDMx/MjE5NTkwLnBuZw" alt="" />
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       {
