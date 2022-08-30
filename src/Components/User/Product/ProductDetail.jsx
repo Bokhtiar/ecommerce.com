@@ -37,6 +37,8 @@ const ProductDetail = () => {
               text: response.data.message
             })
             navigate('/')
+          }).catch((error)=> {
+              console.log(error)
           })
     }
 

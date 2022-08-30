@@ -2,6 +2,7 @@ import axios from "axios"
 import {useEffect, useState} from "react"
 import { Link } from "react-router-dom"
 import Slider from "./Layouts/Slider"
+var moment = require('moment'); 
 
 const Home = () => {
 
@@ -56,10 +57,9 @@ const Home = () => {
     productList(currentpage+1)
   } 
 
- 
+
 
   return (
-    
     <section>
       <Slider></Slider>
       <section className=" layout_padding ">
