@@ -179,17 +179,17 @@ const CheckoutCreate = () =>{
                                     <div className="col-md-12 my-2">
                                         <div className="form-group">
                                             <p>
-                                                <input type="radio" name="payment_Type[]" id="" />
+                                                <input type="radio" name="payment_Type[]" value="bkash" id="" />
                                                 &nbsp;<span>Bkash(0919278181)</span>
                                             </p>
 
                                             <p>
-                                                <input type="radio" name="payment_Type[]" id="" />
+                                                <input type="radio" name="payment_Type[]" value="rocket" id="" />
                                                 &nbsp;<span>Rocket(0919278181)</span>
                                             </p>
 
                                             <p>
-                                                <input type="radio" name="payment_Type[]" id="" />
+                                                <input type="radio" name="payment_Type[]" value="nagud" id="" />
                                                 &nbsp;<span>nagud(0919278181)</span>
                                             </p>
                                         </div>

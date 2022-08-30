@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 
 const OrderShow = () => {
-
+    let total = 0
     const [order, setOrder] = useState([])
     const [orderItems, setOrderItems] = useState([''])
     const { id } = useParams()
@@ -30,10 +30,12 @@ const OrderShow = () => {
                             User Information
                         </div>
                         <div className="card-body">
-                            <span><strong>Name: </strong>{order.name}</span><br />
+                            <span><strong>Name: </strong>{order.f_name + order.l_name}</span><br />
                             <span><strong>Email: </strong>{order.email}</span><br />
                             <span><strong>Phone: </strong>{order.phone}</span><br />
                             <span><strong>Location: </strong>{order.location}</span><br />
+                            <span><strong>Location2: </strong>{order.location2}</span><br />
+                            <span><strong>Post Code: </strong>{order.postCode}</span><br />
                         </div>
                     </div>
                 </div>
@@ -45,6 +47,7 @@ const OrderShow = () => {
                         <div className="card-body">
                             <span><strong>Payment Type: </strong>{order.payment_type}</span><br />
                             <span><strong>Payment Number: </strong>{order.payment_number}</span><br />
+                            <span><strong>Transection ID: </strong>{order.transection_id}</span><br />
                         </div>
                     </div>
                 </div>
@@ -75,14 +78,15 @@ const OrderShow = () => {
                                         <td>{item.product_id ? item.product_id.name : "" }</td>
                                         <td>{item.product_id ? item.product_id.price: ""} Taka</td>
                                         <td>{item.quantity}qty</td>
-                                        <td>{item.product_id ? item.product_id.price : "0" * item.quantity}</td>
+                                        <span style={{ display: "none" }}>{ total += item.product_id ? item.product_id.price * item.quantity : ''    }</span>
+                                        <td>{item.product_id ? item.product_id.price * item.quantity : "0" }Tk</td>
                                         <td><a href="" className="btn btn-sm btn-danger">Delete</a></td>
                                     </tr>
                                     )
                                 }
                             </tbody>
-                            <tfoot>
-                                Total Amount : 
+                            <tfoot className="my-2">
+                                Total Amount : {total}Tk
                             </tfoot>
                         </table>
                     </div>

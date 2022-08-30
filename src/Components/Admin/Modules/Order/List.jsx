@@ -36,7 +36,7 @@ const OrderList = () => {
                                 orders.map((order, index)=>
                                 <tr>
                                     <th scope="row">{index+1}</th>
-                                    <td>{order.name}</td>
+                                    <td>{order.f_name + order.l_name}</td>
                                     <td>{order.email}</td>
                                     <td>{order.phone}</td>
                                     <td>
