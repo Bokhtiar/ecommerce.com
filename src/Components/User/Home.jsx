@@ -2,6 +2,7 @@ import axios from "axios"
 import {useEffect, useState} from "react"
 import { Link } from "react-router-dom"
 import Slider from "./Layouts/Slider"
+import Footer from './Layouts/Footer'
 var moment = require('moment'); 
 
 const Home = () => {
@@ -77,7 +78,6 @@ const Home = () => {
                 <div className="card">
                   <img height={80} className="card-img-top" src={category.image} alt="Card image cap" />
                   <p className="my-2 text-center"><Link className="text-dark" to={`/category/product/list/${category._id}`}>{category.name}</Link></p>
-
                 </div>
               </div>
               )
@@ -85,6 +85,49 @@ const Home = () => {
             
           </div>
         </div>
+      </section>
+
+
+      <section>
+        {
+          categories.map((category, index)=>
+          category.home === true ? 
+            <div className="container">
+              <div className=" text-light p-2" style={{ borderRadius: "5px", background: "#fc5d35" }}>
+               <h3> {category.name}</h3>
+              </div>
+              <div className="card-body">
+              <div className="row">
+                {
+                  products.map((product, index) => 
+                    category._id == product.category_id ?
+                        <div className="col-sm-12 col-md-3 col-lg-3 product">
+                      <Link to={`/product/${product._id}`}>
+                      <div className="card" style={{ width: "17rem" }}>
+                        <img height={200} className="card-img-top" src={product.image} alt="Card image cap" />
+                        <div className="card-body">
+                          <div className="row text-dark">
+                            <div className="col-md-8 col-lg-8 col-sm-8 font-weight-bold">{product.name}</div>
+                            <div className="col-md-4 col-lg-4 col-sm-4"> <strong>৳</strong> {product.price}</div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                      <div className="stoke">
+                        Stock
+                      </div>
+                      </Link>
+                        </div>
+                    :""
+                  )
+                }
+                </div>
+              </div>
+            </div>
+            : ""
+            
+          )
+        }
       </section>
 
       <section className="fruit_section">
@@ -133,182 +176,6 @@ const Home = () => {
             
         </div>
       </section>
-
-      {/* contact */}
-      <section className="contact_section layout_padding">
-        <div className="container">
-          <h2 className="font-weight-bold">
-            Contact Us
-          </h2>
-          <div className="row">
-            <div className="col-md-8 mr-auto">
-              <form action="">
-                <div className="contact_form-container">
-                  <div>
-                    <div>
-                      <input type="text" placeholder="Name" />
-                    </div>
-                    <div>
-                      <input type="text" placeholder="Phone Number" />
-                    </div>
-                    <div>
-                      <input type="email" placeholder="Email" />
-                    </div>
-
-                    <div className="mt-5">
-                      <input type="text" placeholder="Message" />
-                    </div>
-                    <div className="mt-5">
-                      <button type="submit">
-                        send
-                      </button>
-                    </div>
-                  </div>
-
-                </div>
-
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* footer */}
-      <section className="info_section layout_padding">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-3">
-              <h5>
-                Fruits
-              </h5>
-              <ul>
-                <li>
-                  randomised
-                </li>
-                <li>
-                  words which
-                </li>
-                <li>
-                  don't look even
-                </li>
-                <li>
-                  slightly
-                </li>
-                <li>
-                  believable. If you
-                </li>
-                <li>
-                  are going to use
-                </li>
-                <li>
-                  a passage of
-                </li>
-                <li>
-                  Lorem Ipsum,
-                </li>
-              </ul>
-            </div>
-            <div className="col-md-3">
-              <h5>
-                Services
-              </h5>
-              <ul>
-                <li>
-                  randomised
-                </li>
-                <li>
-                  words which
-                </li>
-                <li>
-                  don't look even
-                </li>
-                <li>
-                  slightly
-                </li>
-                <li>
-                  believable. If you
-                </li>
-                <li>
-                  are going to use
-                </li>
-                <li>
-                  a passage of
-                </li>
-                <li>
-                  Lorem Ipsum,
-                </li>
-              </ul>
-            </div>
-            <div className="col-md-3">
-              <h5>
-                List
-              </h5>
-              <ul>
-                <li>
-                  randomised
-                </li>
-                <li>
-                  words which
-                </li>
-                <li>
-                  don't look even
-                </li>
-                <li>
-                  slightly
-                </li>
-                <li>
-                  believable. If you
-                </li>
-                <li>
-                  are going to use
-                </li>
-                <li>
-                  a passage of
-                </li>
-                <li>
-                  Lorem Ipsum,
-                </li>
-              </ul>
-            </div>
-            <div className="col-md-3">
-              <div className="social_container">
-                <h5>
-                  Follow Us
-                </h5>
-                <div className="social-box">
-                  <a href="">
-                    <img src="images/fb.png" alt="" />
-                  </a>
-
-                  <a href="">
-                    <img src="images/twitter.png" alt="" />
-                  </a>
-                  <a href="">
-                    <img src="images/linkedin.png" alt="" />
-                  </a>
-                  <a href="">
-                    <img src="images/instagram.png" alt="" />
-                  </a>
-                </div>
-              </div>
-              <div className="subscribe_container">
-                <h5>
-                  Subscribe Now
-                </h5>
-                <div className="form_container">
-                  <form action="">
-                    <input type="email" />
-                    <button type="submit">
-                      Subscribe
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
     </section>
   )
 }

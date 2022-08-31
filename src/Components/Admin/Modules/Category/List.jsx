@@ -54,7 +54,7 @@ const CategoryList = () => {
         })
   }
 
-
+/**--------------product status-------------------- */
   const productStatus = async(cat_id) => {
     axios.get(`/category/status/${cat_id}`).then((response) =>{
       Swal.fire({
@@ -65,12 +65,23 @@ const CategoryList = () => {
     })
   }
 
-
+  /**----------------home page show or not ---------------- */
+  const homepageShow = (cat_id) => {
+    axios.get(`/category/show/home/${cat_id}`).then((res)=>{
+      Swal.fire({
+        icon:"success",
+        text: "Home Page Show Active"
+      })
+      categoryList()
+    }).catch((error)=> {
+      console.log(error)
+    })
+  }
   
 
 
     
-    
+    console.log(categories)
 
     return (
         <section>
@@ -88,6 +99,7 @@ const CategoryList = () => {
                     <th scope="col">Category Name</th>
                     <th scope="col">Category Image</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Show</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -95,6 +107,7 @@ const CategoryList = () => {
             
             {
               categories.map((cat, index) => 
+              
                 <tr>
                   <td>{index+1}</td>
                   <td>{cat.name}</td>
@@ -103,9 +116,10 @@ const CategoryList = () => {
                   {cat.cat_status === true ? <button className="btn btn-sm btn-success" onClick={()=>productStatus(cat._id)}>Active</button> : <button className="btn btn-sm btn-info" onClick={()=>productStatus(cat._id)}>InActive</button>}
                   </td>
                   <td>
-                    <button onClick={()=>deleteProduct(cat._id)}>Delete</button>
-                    
-                  </td>
+                    {cat.home === true ? <button onClick={()=>homepageShow(cat._id)}>home</button>: <button onClick={()=>homepageShow(cat._id)}>Not home</button> }
+                    </td>
+                  <td><button onClick={()=>deleteProduct(cat._id)}>Delete</button></td>
+                  
                 </tr>
               )
             }
