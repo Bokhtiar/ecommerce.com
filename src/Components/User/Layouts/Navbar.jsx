@@ -1,27 +1,28 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
+
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
+  console.log('data', props.data)
   const token = localStorage.getItem('token');
   
   /**total cart item number */
-  const [cart, setCart] = useState([])
-  const CartNumber = () => {
-      axios.get('/cart',{
-        headers: { Authorization: `Bearer ${token}` }
-    }).then((res)=> {
-      setCart(res.data.data)
-    }).catch((error)=> {
-      console.log(error)
-    })
-  } 
 
-  useEffect(()=> {
-    CartNumber()
-  },[])
+  // const CartNumber = () => {
+  //     axios.get('/cart/number',{
+  //       headers: { Authorization: `Bearer ${token}` }
+  //   }).then((res)=> {
+  //     setCart( props.data)
+  //   }).catch((error)=> {
+  //     console.log(error)
+  //   })
+  // }
+
+  // useEffect(()=> {
+  //   CartNumber()
+  // },[])
 
   return (
+    
     <section>
       <div class="hero_area sub_pages">
         <header class="header_section">
@@ -61,7 +62,7 @@ const Navbar = () => {
                       <div className="d-flex">
                        <Link to={'user/carts'}>
                         <img height={25} className="cart" src="https://imgs.search.brave.com/Yt56hkE1OVcj0mTE0tUqlO80sB7rphoB_kE4r2ZkH9k/rs:fit:800:600:1/g:ce/aHR0cHM6Ly9jZG4u/ZHJpYmJibGUuY29t/L3VzZXJzLzMxNDQ1/L3NjcmVlbnNob3Rz/LzM5NjU5NzAvZHJp/YmJibGVfdHNfcHJl/dmlldy5wbmc" alt="" />
-                        <span>2</span>
+                        <span>{props.data}</span>
                         </Link>
                       </div>
                     </li>

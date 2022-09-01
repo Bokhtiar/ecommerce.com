@@ -3,7 +3,10 @@ import { useEffect, useState } from "react"
 import {Link, useParams} from "react-router-dom"
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import Navbar from "../Layouts/Navbar";
+
 const token = localStorage.getItem('token');
+
 
 const ProductDetail = () => {
     const config = {
@@ -14,8 +17,23 @@ const ProductDetail = () => {
     const [product, setProduct] = useState([])
     console.log('pras',product)
     
+
+    /**total cart item number */
+  const [cart, setCart] = useState('')
+  const CartNumber = () => {
+      axios.get('/cart/number',{
+        headers: { Authorization: `Bearer ${token}` }
+    }).then((res)=> {
+      setCart(res.data.data)
+    }).catch((error)=> {
+      console.log(error)
+    })
+  }
+
     useEffect(()=>{
         SingleProduct()
+        CartNumber()
+
       },[])
       
     const SingleProduct = async()=>{
@@ -32,10 +50,12 @@ const ProductDetail = () => {
         axios.post(api, {}, {
             headers: { Authorization: `Bearer ${token}` }
         }).then((response) =>{
+            <Navbar title="hello"/>
             Swal.fire({
               icon:"success",
               text: response.data.message
-            })
+            });
+            
             navigate('/')
           }).catch((error)=> {
               console.log(error)

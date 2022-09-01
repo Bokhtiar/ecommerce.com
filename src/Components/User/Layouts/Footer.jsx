@@ -1,7 +1,7 @@
 const Footer = () => {
     return (
         <section>
-            <section className="info_section layout_padding">
+            <section className="info_section layout_padding bg-light">
         <div className="container">
           <div className="row">
             <div className="col-md-3">

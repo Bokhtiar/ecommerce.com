@@ -9,16 +9,11 @@ const Home = () => {
 
   const [products , setProduct] = useState([])
   const [categories , setCategory] = useState([])
+  const [categoryProduct , setCategoryProduct] = useState([])
   const [totalpage, setTotalPage] = useState([])
   const [currentpage, setCureentPage] = useState([])
 
-  
-
-  useEffect(()=>{
-    productList()
-    CategoryList()
-  },[])
-
+  /**-------------------product list with pagination ---------------- */
   const productList = async(Pagenumber) => {
     axios.get(`/product?page=${Pagenumber}`).then((res)=>{
       console.log('pages total',res.data.totalPage);
@@ -32,7 +27,19 @@ const Home = () => {
     })
   }
 
+  /**-------------------product list with out pagination------------------------- */
+  const CategoryProducts = async() => {
+    axios.get('/product/list').then((res)=> {
+      console.log(res)
+      setCategoryProduct(res.data.data)
+    }).catch((error) => {
+      console.log(error)
+      next(error)
+    })
+  }
 
+
+  /**--------category list show--------------- */
   const CategoryList = () =>{
     axios.get('/category').then((res)=>{
       setCategory(res.data.data)
@@ -42,6 +49,7 @@ const Home = () => {
   }
 
   
+  /**----------product paginate ---------------- */
   let paginate = [];
   for (let index = 0; index < totalpage; index++) {
       paginate.push(
@@ -58,6 +66,25 @@ const Home = () => {
     productList(currentpage+1)
   } 
 
+
+  /**--------------product list show without pagiate----------------- */
+  const allProduct = () => {
+    axios.get('/product/all').then((res)=>{
+      setCategoryProduct(res.data.data)
+      console.log('pr', res.data.data)
+    }).catch((error) => {
+      console.log(error)
+    })
+  }
+
+
+/**------------------------useEffect ------------------------------*/
+  useEffect(()=>{
+    productList()
+    CategoryList()
+    allProduct()
+    CategoryProducts()
+  },[])
 
 
   return (
@@ -99,7 +126,7 @@ const Home = () => {
               <div className="card-body">
               <div className="row">
                 {
-                  products.map((product, index) => 
+                  categoryProduct.map((product, index) => 
                     category._id == product.category_id ?
                         <div className="col-sm-12 col-md-3 col-lg-3 product">
                       <Link to={`/product/${product._id}`}>
@@ -162,7 +189,7 @@ const Home = () => {
            }
           </div>
          
-               <div>
+               <div className="" style={{ marginLeft: "45%" }}>
                  <nav aria-label="Page navigation example">
                   <ul class="pagination">
                     <li class="page-item  "><button class="page-link" onClick={()=>previce()} >Previous</button></li>
@@ -173,6 +200,7 @@ const Home = () => {
                   </ul>
                 </nav>
                </div>
+            
             
         </div>
       </section>
