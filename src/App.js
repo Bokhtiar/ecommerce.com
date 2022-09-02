@@ -32,6 +32,8 @@ import OrderShow from './Components/Admin/Modules/Order/Show';
 import AdminLogout from './Components/Admin/Logout';
 import Logout from './Components/User/Logout';
 import CategoryProduct from './Components/User/Product/Categoryproduct';
+import Contact from './Components/User/Contact';
+import AdminContact from './Components/Admin/Contact';
 
 
 const App = () => {
@@ -53,6 +55,9 @@ const App = () => {
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/category/product/list/:id" element={<CategoryProduct />} />
             <Route path="/product" element={<CategoryProduct />} />
+
+            <Route path="/contact" element={<Contact />} />
+
           </Route>
 
           <Route path="/admin/login" element={<AdminLogin />} />
@@ -81,6 +86,9 @@ const App = () => {
               <Route path="/admin/order" element={<OrderList />} />
               <Route path="/admin/order/show/:id" element={<OrderShow />} />
 
+              {/* contact route */}
+              <Route path="admin/contact" element={<AdminContact />} />
+              
               {/* settings */}
               <Route path="/admin/logout" element={<AdminLogout />} />
             </Route>

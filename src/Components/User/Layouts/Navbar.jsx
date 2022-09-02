@@ -51,11 +51,11 @@ const Navbar = (props) => {
                   <Link class="nav-link" to="/user/carts"> Cart</Link>
                 </li> */}
                     <li class="nav-item">
-                      <a class="nav-link" href="contact.html">Contact us</a>
+                      <Link class="nav-link" to="contact">Contact us</Link>
                     </li>
                   </ul>
                 </div>
-              
+                
                 <form class="form-inline  my-lg-0">
                 <ul class="navbar-nav  ">
                 <li class="nav-item">
