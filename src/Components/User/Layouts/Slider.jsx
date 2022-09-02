@@ -5,7 +5,7 @@ const Slider = () => {
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100 " style={{ height:"500px" }} src="https://imgs.search.brave.com/ulwZWEnQzZeLGz8yUViDzy4r7RRjG2rt0H8cScr1tLY/rs:fit:1221:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5y/TXl2ZE5TWjFRY0hq/b2JCZTBFUUdBSGFD/NCZwaWQ9QXBp" alt="First slide" />
+                        <img class="d-block w-100 " style={{ height:"500px" }} src="https://img.freepik.com/free-vector/shopping-time-banner-with-realistic-map-cart-gift-bags-vector-illustration_548887-120.jpg" alt="First slide" />
                     </div>
                     <div class="carousel-item">
                         <img class="d-block w-100 " style={{ height:"500px" }} src="https://imgs.search.brave.com/3h5s-BkkHHMmmHPEGrbvKzywHJHdFXJ809O26osXn_E/rs:fit:948:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC54/am54M0h5bVFzTTV6/ejlfRTlncHZ3SGFE/dCZwaWQ9QXBp" alt="Second slide" />

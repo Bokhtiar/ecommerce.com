@@ -29,12 +29,10 @@ const Home = () => {
 
   /**-------------------product list with out pagination------------------------- */
   const CategoryProducts = async() => {
-    axios.get('/product/list').then((res)=> {
-      console.log(res)
+    axios.get('/category/product').then((res)=> {
       setCategoryProduct(res.data.data)
     }).catch((error) => {
-      console.log(error)
-      next(error)
+      console.log(error);
     })
   }
 
@@ -67,10 +65,11 @@ const Home = () => {
   } 
 
 
-  /**--------------product list show without pagiate----------------- */
+  /**--------------product list show with pagiate----------------- */
   const allProduct = () => {
-    axios.get('/product/all').then((res)=>{
-      setCategoryProduct(res.data.data)
+    axios.get('/product/').then((res)=>{
+      console.log('pr', res.data.data)
+      setProduct(res.data.data)
       console.log('pr', res.data.data)
     }).catch((error) => {
       console.log(error)
