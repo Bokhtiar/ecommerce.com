@@ -25,7 +25,8 @@ const Login = () => {
 			'password' : Login.password
 		}).then(function (response) {
 			localStorage.setItem('token', response.data.data)
-			navigate('/user/dashboard')
+			navigate('/')
+			window.location.reload();
           })
           .catch(function (error) {
             console.log(error);

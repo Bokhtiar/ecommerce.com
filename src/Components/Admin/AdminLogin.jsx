@@ -21,6 +21,7 @@ const AdminLogin = () => {
 		}).then(function (response) {
 			localStorage.setItem('token', response.data.data)
 			navigate('/admin/dashboard')
+			window.location.reload();
           })
           .catch(function (error) {
             console.log(error);

@@ -34,6 +34,7 @@ import Logout from './Components/User/Logout';
 import CategoryProduct from './Components/User/Product/Categoryproduct';
 import Contact from './Components/User/Contact';
 import AdminContact from './Components/Admin/Contact';
+import UserOrderLists from './Components/User/Order/List';
 
 
 const App = () => {
@@ -106,6 +107,9 @@ const App = () => {
 
               {/* carts */}
               <Route path="/user/carts" element={<CartList />} />
+
+              {/* orders */}
+              <Route path="user/orders" element={<UserOrderLists />} />
               {/* checkout */}
               <Route path="/user/checkout" element={<CheckoutCreate />} />
               <Route path="/logout" element={<Logout />} />

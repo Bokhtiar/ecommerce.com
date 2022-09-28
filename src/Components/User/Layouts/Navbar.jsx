@@ -74,7 +74,8 @@ const Navbar = (props) => {
                       {
                         token  ?
                         ( <div>
-                          <Link class="dropdown-item" to="#">dashboard</Link>
+                          <Link class="dropdown-item" to="user/carts">Cart List</Link>
+                          <Link class="dropdown-item" to="user/orders">Order List</Link>
                           <Link class="dropdown-item" to="/logout">Logout</Link>
                         </div> )
                         

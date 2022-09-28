@@ -10,7 +10,9 @@ const CategoryList = () => {
     
     useEffect(()=>{
       categoryList()
- },[])
+      },[])
+
+
     const categoryList = async() => {
         await axios.get('/category')
         .then(function (response) {
@@ -80,7 +82,7 @@ const CategoryList = () => {
   
 
 
-    
+
     console.log(categories)
 
     return (
