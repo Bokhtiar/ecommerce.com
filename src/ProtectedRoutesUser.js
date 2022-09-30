@@ -23,7 +23,7 @@ import jwt_decode from "jwt-decode";
 	  const auth=useAuth()
 	
 
-	  return auth?<Outlet/>: <Navigate to="/login"/>
+	  return auth ? <Outlet/> : <Navigate to="/login"/>
 	}
 	
 

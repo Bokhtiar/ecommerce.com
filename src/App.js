@@ -35,6 +35,7 @@ import CategoryProduct from './Components/User/Product/Categoryproduct';
 import Contact from './Components/User/Contact';
 import AdminContact from './Components/Admin/Contact';
 import UserOrderLists from './Components/User/Order/List';
+import Register from './Components/Register';
 
 
 const App = () => {
@@ -52,6 +53,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
             {/* login admin and user */}
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             {/* product */}
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/category/product/list/:id" element={<CategoryProduct />} />

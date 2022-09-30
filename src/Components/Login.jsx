@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect } from 'react'
 import {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
-
+import Swal from "sweetalert2";
 
 const Login = () => {
 
@@ -25,11 +25,18 @@ const Login = () => {
 			'password' : Login.password
 		}).then(function (response) {
 			localStorage.setItem('token', response.data.data)
+			Swal.fire({
+				icon: "success",
+				text: "Login Successfully Done",
+			  });
 			navigate('/')
 			window.location.reload();
           })
           .catch(function (error) {
-            console.log(error);
+            Swal.fire({
+				icon: "success",
+				text: "Email or password Invalid",
+			  });
           });
 	}
 
@@ -50,7 +57,7 @@ const Login = () => {
 							</div>
 							<div className="form-group">
 								<label htmlFor="">Enter Your Password</label>
-								<input onChange={handleInput} value={login.password} type="password" className='form-control' placeholder='Password' />
+								<input onChange={handleInput} name='password' value={login.password} type="password" className='form-control' placeholder='Password' />
 							</div>
 							<input type="submit" value="Login" className='btn btn-sm btn-success tex-center'  />
 						</form>
