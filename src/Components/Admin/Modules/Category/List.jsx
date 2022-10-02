@@ -120,7 +120,8 @@ const CategoryList = () => {
                   <td>
                     {cat.home === true ? <button onClick={()=>homepageShow(cat._id)}>home</button>: <button onClick={()=>homepageShow(cat._id)}>Not home</button> }
                     </td>
-                  <td><button onClick={()=>deleteProduct(cat._id)}>Delete</button></td>
+                  <td><Link className="btn btn-sm btn-success" to={`/admin/category/edit/${cat._id}`}>Edit</Link> 
+                  <button className="btn btn-sm btn-danger" onClick={()=>deleteProduct(cat._id)}>Delete</button></td>
                   
                 </tr>
               )

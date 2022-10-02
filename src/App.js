@@ -36,6 +36,7 @@ import Contact from './Components/User/Contact';
 import AdminContact from './Components/Admin/Contact';
 import UserOrderLists from './Components/User/Order/List';
 import Register from './Components/Register';
+import CategoryEdit from './Components/Admin/Modules/Category/edit';
 
 
 const App = () => {
@@ -73,6 +74,7 @@ const App = () => {
               <Route path="admin/dashboard" element={<Dashboard />} />
               {/* category start */}
               <Route path="admin/category" element={<CategoryList />} />
+              <Route path="admin/category/edit/:id" element={<CategoryEdit />} />
               <Route path="admin/category/create" element={<CategoryCreate />} />
               {/* category end  */}
               {/* product start */}
