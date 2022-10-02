@@ -37,6 +37,7 @@ import AdminContact from './Components/Admin/Contact';
 import UserOrderLists from './Components/User/Order/List';
 import Register from './Components/Register';
 import CategoryEdit from './Components/Admin/Modules/Category/edit';
+import ProductEdit from './Components/Admin/Modules/product/ProductEdit';
 
 
 const App = () => {
@@ -80,6 +81,7 @@ const App = () => {
               {/* product start */}
               <Route path="admin/product" element={<ProductList />} />
               <Route path="admin/product/create" element={<ProductCreate />} />
+              <Route path="admin/product/edit/:id" element={< ProductEdit />} />
               {/* produt end  */}
               
               <Route path="admin/settings" element={<Settings />} />

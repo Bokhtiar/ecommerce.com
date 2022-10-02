@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 import {useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { useParams } from "react-router-dom"
 
 const ProductCreate = () => {
     const navigate=useNavigate()
+    const { id } = useParams()
     const [category, setCategory] = useState([])
     const [name, setName] = useState("")
     const [price, setPrice] = useState("")
@@ -17,7 +19,7 @@ const ProductCreate = () => {
 		setImage(event.target.files[0]);
 	};
  
-    const ProductStore = async(e) => {
+    const ProductUpdate = async(e) => {
         e.preventDefault();
         const formData = new FormData()
         formData.append('name', name)
@@ -26,7 +28,7 @@ const ProductCreate = () => {
         formData.append('category_id', category_id)
         formData.append('description', description)
 
-        await axios.post(`/admin/product`, formData).then(({data})=>{
+        await axios.put(`/admin/product/${id}`, formData).then(({data})=>{
             Swal.fire({
               icon:"success",
               text:data.message
@@ -41,9 +43,24 @@ const ProductCreate = () => {
 
     }
 
+    /**product show */
+    const ProductShow = async(e) => {
+        axios.get(`/admin/product/${id}`).then((res)=>{
+            setName(res.data.data[0].name)
+            setCategory_id(res.data.data[0].category_id)
+            setPrice(res.data.data[0].price)
+            setDescription(res.data.data[0].description)
+            console.log("asdf", res.data.data[0].name)
+        }).catch((error)=>{
+            console.log(error)
+        })
+    }
+
     useEffect(()=>{
         CategoryList()
+        ProductShow()
     },[])
+
     const CategoryList = async() => {
         axios.get('/category').then((response) =>{
             console.log(response.data.data)
@@ -63,7 +80,7 @@ const ProductCreate = () => {
                 </div>
 
                 <div className="card-body">
-                    <form action="" onSubmit={ProductStore} className="">
+                    <form action="" onSubmit={ProductUpdate} className="">
                         <div className="row">
                             <div className="col-md-8 my-2">
                                 <label htmlFor="">Product Name <span className="text-danger">*</span></label>
