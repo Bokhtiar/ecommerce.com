@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom"
 
 const CategoryProduct = () => {
     const {id} = useParams()
+    const [search, setSearch] = useState('')
     const [categories, setCategory] = useState([''])
     const [products, setProduct] = useState([''])
 
@@ -12,6 +13,15 @@ const CategoryProduct = () => {
             setCategory(res.data.data)
         }).catch((error) => {
             console.log(error);
+        })
+    }
+
+    /**search */
+    const SearchFilter = () => {
+        axios.get(`/product/search/${search}`).then((res)=>{
+           
+        }).catch((error)=>{
+            console.log(error)
         })
     }
 
@@ -47,6 +57,7 @@ const CategoryProduct = () => {
         AllCategory()
         CategoryWaysProduct()
         AllProduct()
+       
     },[])
 
     return (
@@ -61,10 +72,16 @@ const CategoryProduct = () => {
                             )
                         }
                         
-                    </ul>
+                    </ul> 
                 </div>
                 <div className="col-md-10 col-lg-10 col-sm-8">
-                    <h2>Products</h2> <hr />
+                    <h2>Products 
+                        <input type="text" onClick={SearchFilter()} className="form-control" name="" id=""
+                        onChange={(e)=>{
+                            setSearch(e.target.value)
+                        }}
+                        />
+                    </h2> <hr />
                     <div className="row">
                         {
                         products.length >1 ?
