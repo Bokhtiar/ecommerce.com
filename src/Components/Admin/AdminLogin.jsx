@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
 import {useNavigate } from 'react-router-dom';
+import Swal from "sweetalert2";
 
 const AdminLogin = () => {
 	const navigate=useNavigate()
@@ -20,11 +21,19 @@ const AdminLogin = () => {
 			'password' : adminLogin.password
 		}).then(function (response) {
 			localStorage.setItem('token', response.data.data)
+			Swal.fire({
+				icon: "success",
+				text: "Login Successfully Done",
+			  });
 			navigate('/admin/dashboard')
 			window.location.reload();
           })
           .catch(function (error) {
             console.log(error);
+			Swal.fire({
+				icon: "error",
+				text: "Email or password Invalid",
+			  });
           });
 	}
 
@@ -43,11 +52,11 @@ const AdminLogin = () => {
 							<form onSubmit={submitAdminLogin}>
 							<div className="form-group">
 								<label htmlFor="">Type Here Email</label>
-								<input onChange={handleInput} value={adminLogin.email} type="email" name="email" placeholder="type here email" />
+								<input className="form-control" onChange={handleInput} value={adminLogin.email} type="email" name="email" placeholder="type here email" />
 							</div>
 							<div className="form-group">
 								<label htmlFor="">Type Here Password</label>
-								<input onChange={handleInput} value={adminLogin.password} type="password" name="password" placeholder="type here password" />
+								<input onChange={handleInput} className="form-control" value={adminLogin.password} type="password" name="password" placeholder="type here password" />
 							</div>
 							<div className="text-center"><button type="submit" className='btn btn-success'>Login</button></div>
 							</form>

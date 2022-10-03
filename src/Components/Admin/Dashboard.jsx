@@ -10,6 +10,16 @@ const AdminDashboard = () => {
             setOrder(res.data.data)
         })
     }
+
+    /**delete order  */
+    const deleteCategory  = (id) => {
+        axios.delete(`/admin/order/${id}`).then((res)=> {
+            console.log(res)
+            AllOrder()
+        }).catch((error)=> {
+            console.log(error)
+        })
+    }
     useEffect(() => {
         AllOrder()
     }, [])
@@ -44,7 +54,8 @@ const AdminDashboard = () => {
                                         status
                                     </td>
                                     <td>
-                                        <Link to={`/admin/order/show/${order._id}`}>Details</Link>
+                                        <Link to={`/admin/order/show/${order._id}`} className="btn btn-sm btn-success">Details</Link>
+                                        <button className="btn btn-sm btn-danger"  onClick={()=>deleteCategory(order._id)}>Delete</button>
                                     </td>
                                 </tr>
                                 )

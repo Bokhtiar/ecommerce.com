@@ -67,7 +67,6 @@ const OrderShow = () => {
                                 <th scope="col">Product Price</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Sub Total</th>
-                                <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -80,7 +79,7 @@ const OrderShow = () => {
                                         <td>{item.quantity}qty</td>
                                         <span style={{ display: "none" }}>{ total += item.product_id ? item.product_id.price * item.quantity : ''    }</span>
                                         <td>{item.product_id ? item.product_id.price * item.quantity : "0" }Tk</td>
-                                        <td><a href="" className="btn btn-sm btn-danger">Delete</a></td>
+                                       
                                     </tr>
                                     )
                                 }

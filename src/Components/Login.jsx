@@ -34,7 +34,7 @@ const Login = () => {
       })
       .catch(function (error) {
         Swal.fire({
-          icon: "success",
+          icon: "error",
           text: "Email or password Invalid",
         });
       });
