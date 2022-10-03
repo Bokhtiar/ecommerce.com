@@ -11,7 +11,7 @@ const Home = () => {
   const [categories , setCategory] = useState([])
   const [categoryProduct , setCategoryProduct] = useState([])
   const [totalpage, setTotalPage] = useState([])
-  const [currentpage, setCureentPage] = useState([])
+  const [currentpage, setCureentPage] = useState([]) 
 
   /**-------------------product list with pagination ---------------- */
   const productList = async(Pagenumber) => {
