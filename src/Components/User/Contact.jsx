@@ -36,7 +36,7 @@ const ContactStore = (e) => {
                             <form action="" onSubmit={ContactStore}>
                                 <div className="form-group">
                                     <label htmlFor="">Enter Your Full Name</label>
-                                    <input type="text" className="form-control" name="" id=""
+                                    <input required type="text" className="form-control" name="" id=""
                                     onChange={(e)=> {
                                         setName(e.target.value)
                                     }}
@@ -44,7 +44,7 @@ const ContactStore = (e) => {
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="">Enter Your E-mail</label>
-                                    <input type="email" className="form-control" name="" id="" 
+                                    <input required type="email" className="form-control" name="" id="" 
                                     onChange={(e)=> {
                                         setEmail(e.target.value)
                                     }}
@@ -52,7 +52,7 @@ const ContactStore = (e) => {
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="">Enter Your Subject</label>
-                                    <input type="text" className="form-control" name="" id="" 
+                                    <input required type="text" className="form-control" name="" id="" 
                                     onChange={(e)=> {
                                         setSubject(e.target.value)
                                     }}
@@ -61,7 +61,7 @@ const ContactStore = (e) => {
 
                                 <div className="form-group">
                                     <label htmlFor="">Message</label>
-                                    <textarea name="" id="" cols="10" className="form-control" rows="4"
+                                    <textarea required name="" id="" cols="10" className="form-control" rows="4"
                                     onChange={(e)=> {
                                         setMessage(e.target.value)
                                     }}

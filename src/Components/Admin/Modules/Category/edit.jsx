@@ -55,14 +55,14 @@ const CategoryEdit = () => {
             <div className="card">
                 <div className="card-header">
                     <div className="card-title">
-                        <p>Create New Product</p>
+                        <p>Update Product</p>
                     </div>
                 </div>
                 <div className="card-body">
                     <form onSubmit={CategoryUpdate} method="post">
                     <div className="form-group">
                         <label htmlFor="">Category Name</label>
-                        <input type="text" name="category_name" className="form-control" value={name} id=""
+                        <input required type="text" name="category_name" className="form-control" value={name} id=""
                             onChange={(e)=>{
                                 setName(e.target.value)
                               }}
@@ -70,11 +70,11 @@ const CategoryEdit = () => {
                     </div>
                     <div className="form-gorup">
                         <label htmlFor="">Category Image</label>
-                        <input type="file" name="image" id="" className="form-control" 
+                        <input required type="file" name="image" id="" className="form-control" 
                             onChange={changeHandler}
                         />
                     </div>
-                    <div className="text-center my-2"><button type="submit" className='btn btn-success'>Create Category</button></div>
+                    <div className="text-center my-2"><button type="submit" className='btn btn-success'>Update Category</button></div>
                     </form>
                 </div>
             </div>

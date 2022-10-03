@@ -48,7 +48,7 @@ const Register = () => {
             <div className="card-body">
               <form onSubmit={register} action="" className="form-group">
                 <div className="form-group">
-                  <label htmlFor="">Enter Your E-mail</label>
+                  <label htmlFor="">Enter Your Full Name</label>
                   <input
                     onChange={handleInput}
                     value={Register.name}

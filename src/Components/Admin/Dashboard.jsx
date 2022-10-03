@@ -20,6 +20,8 @@ const AdminDashboard = () => {
             console.log(error)
         })
     }
+
+    /**useEffect call api */
     useEffect(() => {
         AllOrder()
     }, [])

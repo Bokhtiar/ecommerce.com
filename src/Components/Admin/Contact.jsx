@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import Swal from "sweetalert2";
 
 const AdminContact = () => {
     /**-------------contact list------------- */
@@ -15,9 +16,29 @@ const AdminContact = () => {
     /**----------contact status ----------------- */
     const ContactStatus = async(id) => {
         await axios.get(`/admin/contact/status/${id}`).then((res)=>{
+            Swal.fire({
+				icon: "success",
+				text: "Contact Status Changes",
+			  });
             allContact()
         }).catch((error)=> {
             console.log(error);
+        })
+    }
+
+    /*-----------contact delete ------------------- */
+    const contactDelete = (id) => {
+        axios.delete(`/admin/contact/${id}`).then((res)=>{
+            Swal.fire({
+				icon: "success",
+				text: "Contact Deleted Successfully",
+			  });
+            allContact()
+        }).catch((error)=> {
+            Swal.fire({
+				icon: "error",
+				text: "someting went wrong",
+			  });
         })
     }
     /**-------------useEffect------------- */
@@ -40,6 +61,7 @@ const AdminContact = () => {
                         <th scope="col">Subject</th>
                         <th scope="col">Message</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,7 +72,10 @@ const AdminContact = () => {
                                 <td>{contact.email}</td>
                                 <td>{contact.subject}</td>
                                 <td>{contact.message}</td>
-                                <td>{contact.contactStatus === true ? <button onClick={(e)=>ContactStatus(contact._id)}>Active</button> : <button onClick={(e)=>ContactStatus(contact._id)}>InActive</button> }</td>
+                                <td>{contact.contactStatus === true ? <button className="btn btn-sm btn-success" onClick={(e)=>ContactStatus(contact._id)}>Active</button> : <button className="btn btn-sm btn-danger" onClick={(e)=>ContactStatus(contact._id)}>InActive</button> }</td>
+                                <td>
+                                    <button className="btn btn-sm btn-danger" onClick={()=>contactDelete(contact._id)}>Delete</button>
+                                </td>
                             </tr>
                            )
                        }

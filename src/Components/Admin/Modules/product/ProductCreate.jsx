@@ -67,7 +67,7 @@ const ProductCreate = () => {
                         <div className="row">
                             <div className="col-md-8 my-2">
                                 <label htmlFor="">Product Name <span className="text-danger">*</span></label>
-                                <input type="text" name="name" id="" value={name} placeholder="Product Name" className="form-control"
+                                <input required type="text" name="name" id="" value={name} placeholder="Product Name" className="form-control"
                                 onChange={(e)=>{
                                     setName(e.target.value)
                                   }}
@@ -75,7 +75,7 @@ const ProductCreate = () => {
                             </div>
                             <div className="col-md-4 my-2">
                                 <label htmlFor="">Product Price</label>
-                                <input type="number" name="price" value={price} className="form-control" placeholder="Product Price" id="" 
+                                <input required type="number" name="price" value={price} className="form-control" placeholder="Product Price" id="" 
                                 onChange={(e)=>{
                                     setPrice(e.target.value)
                                   }}
@@ -83,7 +83,7 @@ const ProductCreate = () => {
                             </div>
                             <div className="col-md-6 my-2">
                                 <label htmlFor="">Select Category</label>
-                                <select name="category_id" className="form-control" value={category_id} id=""
+                                <select required name="category_id" className="form-control" value={category_id} id=""
                                  onChange={(e)=>{
                                     setCategory_id(e.target.value)
                                   }}
@@ -98,13 +98,13 @@ const ProductCreate = () => {
                             </div>
                             <div className="col-md-6 my-2">
                                 <label htmlFor="">Product Image</label>
-                                <input type="file" name="image" className="form-control" id=""
+                                <input required type="file" name="image" className="form-control" id=""
                                 onChange={changeHandler}
                                 />
                             </div>
                             <div className="col-md-12 my-2">
                                 <label htmlFor="">Description</label>
-                                <textarea name="description" value={description} className="form-control" placeholder="Product Description" id="" cols="10" rows="5"
+                                <textarea required name="description" value={description} className="form-control" placeholder="Product Description" id="" cols="10" rows="5"
                                 onChange={(e)=>{
                                     setDescription(e.target.value)
                                   }}

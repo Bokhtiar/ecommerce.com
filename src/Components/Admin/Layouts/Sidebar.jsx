@@ -37,18 +37,17 @@ const AdminSidebar = () => {
         </Link>
       </li>{/*  End Category Nav */}
 
-      
-      <li class="nav-item">
-        <Link class="nav-link " to="/admin/logout">
-          <i class="bi bi-grid"></i>
-          <span>Logout</span>
-        </Link>
-      </li>{/*  End Category Nav */}
-
       <li class="nav-item">
         <Link class="nav-link " to="/admin/contact">
           <i class="bi bi-grid"></i>
           <span>Contact</span>
+        </Link>
+      </li>{/*  End Category Nav */}
+
+      <li class="nav-item">
+        <Link class="nav-link " to="/admin/logout">
+          <i class="bi bi-grid"></i>
+          <span>Logout</span>
         </Link>
       </li>{/*  End Category Nav */}
 

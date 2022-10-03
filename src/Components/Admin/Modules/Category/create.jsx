@@ -47,7 +47,7 @@ const CategoryCreate = () => {
                     <form onSubmit={CategoryStore} method="post">
                     <div className="form-group">
                         <label htmlFor="">Category Name</label>
-                        <input type="text" name="category_name" className="form-control" value={name} id=""
+                        <input required type="text" name="category_name" className="form-control" value={name} id=""
                             onChange={(e)=>{
                                 setName(e.target.value)
                               }}
@@ -55,7 +55,7 @@ const CategoryCreate = () => {
                     </div>
                     <div className="form-gorup">
                         <label htmlFor="">Category Image</label>
-                        <input type="file" name="image" id="" className="form-control" 
+                        <input required type="file" name="image" id="" className="form-control" 
                             onChange={changeHandler}
                         />
                     </div>
