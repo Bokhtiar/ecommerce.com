@@ -156,6 +156,7 @@ const CheckoutCreate = () => {
                           setEmail(e.target.value);
                         }}
                         value={user.email}
+                        required
                         type="text"
                         className="form-control"
                         placeholder="E-mail"
@@ -174,6 +175,7 @@ const CheckoutCreate = () => {
                         type="text"
                         className="form-control"
                         placeholder="First Name"
+                        required
                         name="f_name"
                         value={user.name}
                         id=""
@@ -189,6 +191,7 @@ const CheckoutCreate = () => {
                         }}
                         type="text"
                         className="form-control"
+                        required
                         placeholder="Last Name (optional)"
                         name="l_name"
                         id=""
@@ -203,6 +206,7 @@ const CheckoutCreate = () => {
                           setLocation(e.target.value);
                         }}
                         type="text"
+                        required
                         className="form-control"
                         placeholder="Address"
                         name="location"
@@ -218,6 +222,7 @@ const CheckoutCreate = () => {
                           setLocation2(e.target.value);
                         }}
                         type="text"
+                        required
                         className="form-control"
                         placeholder="Address 2 (option)"
                         name="location2"
@@ -232,6 +237,7 @@ const CheckoutCreate = () => {
                         onChange={(e) => {
                           setPostCode(e.target.value);
                         }}
+                        required
                         type="text"
                         className="form-control"
                         placeholder="Post Code"
@@ -248,6 +254,7 @@ const CheckoutCreate = () => {
                         onChange={(e) => {
                           setPhone(e.target.value);
                         }}
+                        required
                         className="form-control"
                         placeholder="Phone Number"
                         name="phone"
@@ -265,6 +272,7 @@ const CheckoutCreate = () => {
                             setPayment_type(e.target.value);
                           }}
                           name="payment_Type[]"
+                          required
                           value="bkash"
                           id=""
                         />
@@ -278,6 +286,7 @@ const CheckoutCreate = () => {
                             setPayment_type(e.target.value);
                           }}
                           name="payment_Type[]"
+                          required
                           value="rocket"
                           id=""
                         />
@@ -292,6 +301,7 @@ const CheckoutCreate = () => {
                           }}
                           name="payment_Type[]"
                           value="nagud"
+                          required
                           id=""
                         />
                         &nbsp;<span>nagud(0919278181)</span>
@@ -309,6 +319,7 @@ const CheckoutCreate = () => {
                         className="form-control"
                         placeholder="Transection ID"
                         name="transection_id"
+                        required
                         id=""
                       />
                     </div>
@@ -324,6 +335,7 @@ const CheckoutCreate = () => {
                         className="form-control"
                         placeholder="Payment Number"
                         name="payment_number"
+                        required
                         id=""
                       />
                     </div>
