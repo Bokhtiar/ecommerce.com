@@ -40,7 +40,6 @@ const ProductCreate = () => {
                 icon:"error"
               })
           })
-
     }
 
     /**product show */
