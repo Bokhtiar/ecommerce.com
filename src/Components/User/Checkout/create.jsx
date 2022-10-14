@@ -43,12 +43,14 @@ const CheckoutCreate = () => {
   const [payment_number, setPayment_number] = useState("");
   const [note, setNote] = useState("");
 
+
+
   /**order form submit */
   const Checkout = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("email", email);
-    formData.append("f_name", f_name);
+    formData.append("email", user.email);
+    formData.append("f_name", user.name);
     formData.append("l_name", l_name);
     formData.append("location", location);
     formData.append("location2", location2);
@@ -59,6 +61,7 @@ const CheckoutCreate = () => {
     formData.append("payment_number", payment_number);
     formData.append("note", note);
 
+    
     await axios
       .post(`/order`, formData,  {
         headers: { Authorization: `Bearer ${token}` }
@@ -263,51 +266,22 @@ const CheckoutCreate = () => {
                     </div>
                   </div>
 
-                  <div className="col-md-12 my-2">
-                    <div className="form-group">
-                      <p>
-                        <input
-                          type="radio"
-                          onChange={(e) => {
-                            setPayment_type(e.target.value);
-                          }}
-                          name="payment_Type[]"
-                          required
-                          value="bkash"
-                          id=""
-                        />
-                        &nbsp;<span>Bkash(0919278181)</span>
-                      </p>
+                
 
-                      <p>
-                        <input
-                          type="radio"
-                          onChange={(e) => {
-                            setPayment_type(e.target.value);
-                          }}
-                          name="payment_Type[]"
-                          required
-                          value="rocket"
-                          id=""
-                        />
-                        &nbsp;<span>Rocket(0919278181)</span>
-                      </p>
-
-                      <p>
-                        <input
-                          type="radio"
-                          onChange={(e) => {
-                            setPayment_type(e.target.value);
-                          }}
-                          name="payment_Type[]"
-                          value="nagud"
-                          required
-                          id=""
-                        />
-                        &nbsp;<span>nagud(0919278181)</span>
-                      </p>
+                  <div className="col-md-6 my-2">
+                    <div className="form-gorup">
+                      <select className="form-control" name="payment_type" id=""
+                      onChange={(e) => {
+                        setPayment_type(e.target.value);
+                      }}
+                      >
+                        <option value="Bkash">Bkash</option>
+                        <option value="Rocket">Rocket</option>
+                        <option value="Nagud">Nagud</option>
+                      </select>
                     </div>
                   </div>
+
 
                   <div className="col-md-6 my-2">
                     <div className="form-gorup">

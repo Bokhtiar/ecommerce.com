@@ -45,7 +45,7 @@ const OrderShow = () => {
                             Pyments History
                         </div>
                         <div className="card-body">
-                            <span><strong>Payment Type: </strong>{order.payment_type}</span><br />
+                            {/* <span><strong>Payment Type: </strong>{order.payment_type}</span><br /> */}
                             <span><strong>Payment Number: </strong>{order.payment_number}</span><br />
                             <span><strong>Transection ID: </strong>{order.transection_id}</span><br />
                         </div>

@@ -69,6 +69,7 @@ const Login = () => {
                     value={login.password}
                     type="password"
                     className="form-control"
+                    minLength={8}
                     placeholder="Password"
                   />
                 </div>

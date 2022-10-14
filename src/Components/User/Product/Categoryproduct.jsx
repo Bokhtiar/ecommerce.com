@@ -47,7 +47,9 @@ const CategoryProduct = () => {
   const SearchFilter = () => {
     axios
       .get(`/product/search/${search}`)
-      .then((res) => {})
+      .then((res) => {
+        
+      })
       .catch((error) => {
         console.log(error);
       });
@@ -124,7 +126,7 @@ const CategoryProduct = () => {
         </div>
         <div className="col-md-9 col-lg-9 col-sm-8">
           <h2>Products </h2> <hr />
-          <input
+          {/* <input
             placeholder="search"
             type="text"
             onClick={SearchFilter()}
@@ -134,7 +136,7 @@ const CategoryProduct = () => {
             onChange={(e) => {
               setSearch(e.target.value);
             }}
-          />
+          /> */}
           <div className="row">
             {products.length > 1
               ? products.map((product, index) => (
